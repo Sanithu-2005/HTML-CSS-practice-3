@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4 Portfolio - Forms & Layouts</title>
+    <style>
+        /* BASE & LAYOUT */
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+
+        header { margin-bottom: 30px; }
+
+        /* NAVIGATION */
+        .week-nav ul {
+            list-style: none;
+            padding: 15px;
+            display: flex;
+            background: #2c3e50;
+            border-radius: 8px;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .week-nav a {
+            color: white;
+            padding: 10px 18px;
+            text-decoration: none;
+            background-color: #3e5871;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .week-nav a:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+        }
+        .week-nav a.active { background-color: #3498db; font-weight: bold; }
+
+        /* FORM STYLING (Challenge 4) */
+        fieldset {
+            border: 2px solid #2c3e50;
+            border-radius: 12px;
+            padding: 25px;
+            background-color: #ffffff;
+            margin: 20px 0;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        input[type="text"], 
+        input[type="email"], 
+        input[type="tel"], 
+        select, 
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; /* Critical for layout */
+            margin-top: 5px;
+        }
+
+        /* Focus States */
+        input:focus, select:focus, textarea:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+            background-color: #f9feff;
+        }
+
+        /* FLOAT LAYOUT (Challenge 5) */
+        .choice-container {
+            margin: 20px 0;
+        }
+        .float-left {
+            float: left;
+            width: 48%;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .float-right {
+            float: right;
+            width: 48%;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* BUTTONS */
+        .form-actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .btn-submit {
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit:hover { background-color: #2ecc71; }
+        .btn-reset {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* TABLE & MISC */
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: white; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #ecf0f1; }
+        .lecture { background-color: #34495e; color: white; }
+        .tutorial { background-color: #ebf5fb; }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            float: left;
+            margin: 0 20px 20px 0;
+            border: 4px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body id="top">
+
+    <header>
+        <nav class="week-nav">
+            <ul>
+                <li><a href="../Week1/index.html">Week 1</a></li>
+                <li><a href="../Week2/index.html">Week 2</a></li>
+                <li><a href="../Week3/index.html" class="active">Week 3</a></li>
+                <li><a href="../Week4/index.html">Week 4</a></li>
+                <li><a href="../Week5/index.html">Week 5</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro" class="clearfix">
+            <h2>Personal Introduction</h2>
+            <img src="my-photo.jpg" alt="Student portrait" class="profile-img">
+            <p><strong>Student ID:</strong> <code>w2182075</code></p>
+            <p>Welcome to my Week 3 portfolio. This week focuses on the integration of complex forms and CSS float-based layouts.</p>
+        </section>
+
+        <section id="timetable">
+            <h2>University Timetable</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>9-11am</th>
+                            <td class="lecture">COSC001W (L)</td>
+                            <td rowspan="2">Independent Study</td>
+                            <td class="tutorial">MMCS007W (T)</td>
+                            <td class="lecture">COSC011W (L)</td>
+                            <td rowspan="4">Free Day</td>
+                        </tr>
+                        <tr>
+                            <th>11am-1pm</th>
+                            <td class="tutorial">COSC011W (T)</td>
+                            <td class="tutorial">COSC001W (T)</td>
+                            <td class="lecture">MMCS007W (L)</td>
+                        </tr>
+                        <tr>
+                            <th>1-2pm</th>
+                            <td colspan="4" style="background:#eee">LUNCH BREAK</td>
+                        </tr>
+                        <tr>
+                            <th>2-4pm</th>
+                            <td class="lecture">MMCS007W (L)</td>
+                            <td class="lecture">COSC001W (L)</td>
+                            <td>Library Research</td>
+                            <td class="tutorial">COSC011W (T)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form action="mailto:w2182075@westminster.ac.uk" method="post" enctype="text/plain">
+                <fieldset>
+                    <legend>Portfolio Feedback Form</legend>
+
+                    <label for="fname">Full Name:</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="07123 456789">
+
+                    <label for="browser">Which browser are you using?</label>
+                    <select id="browser" name="browser">
+                        <option value="chrome">Google Chrome</option>
+                        <option value="firefox">Mozilla Firefox</option>
+                        <option value="safari">Apple Safari</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <div class="choice-container clearfix">
+                        <div class="float-left">
+                            <p><strong>Preferred Contact Method:</strong></p>
+                            <label><input type="radio" name="contact-pref" value="email" checked> Email</label>
+                            <label><input type="radio" name="contact-pref" value="phone"> Phone</label>
+                        </div>
+                        <div class="float-right">
+                            <p><strong>Interests (Check all):</strong></p>
+                            <label><input type="checkbox" name="interest" value="html"> HTML5/CSS3</label>
+                            <label><input type="checkbox" name="interest" value="js"> JavaScript</label>
+                        </div>
+                    </div>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Write your thoughts here..." style="height:100px"></textarea>
+
+                    <div class="form-actions clearfix">
+                        <button type="submit" class="btn-submit">Send Message</button>
+                        <button type="reset" class="btn-reset">Reset Form</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="reflection">
+            <h2>Weekly Reflection</h2>
+            <div style="background: white; padding: 20px; border-radius: 8px;">
+                <h3>What I Learned</h3>
+                <p>This week was a deep dive into <strong>HTML Forms</strong> and <strong>CSS Float Layouts</strong>. I learned how to use <code>fieldset</code> and <code>legend</code> to group related data logically, which significantly improves accessibility. I also explored various input types like <code>tel</code> and <code>email</code>, which provide built-in validation on mobile devices.</p>
+                
+                
+
+                <h3>Challenges Faced</h3>
+                <p>The biggest challenge was mastering the <code>float</code> property. I initially struggled with elements collapsing into each other until I implemented the <strong>clearfix</strong> hack and the <code>clear: both</code> property. Understanding that floated elements are taken out of the normal document flow was a "lightbulb" moment for me. I also had to be careful with <code>box-sizing: border-box</code> to ensure my 48% width containers didn't break to a new line when padding was added.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Student Portfolio | <a href="mailto:w2182075@westminster.ac.uk">w2182075@westminster.ac.uk</a></p>
+    </footer>
+
+</body>
+</html>
